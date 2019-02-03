@@ -1,0 +1,59 @@
+/**
+* The user is first prompted to enter '1' to convert from Fahrenheit to Celsius
+* and '2' to convert from Celsius to Fahrenheit. The user is also given the option of
+* entering '3'which exits the program printing "Thank you, bye."
+* If 1 is entered by the user, the user is prompted to enter a temperature in Fahrenheit.
+* That tempurature entered is then convereted to Celcius and printed in the output.
+* If 2 is entered by the user, the user is prompted to enter a temperature in Celsius.
+* That tempurature entered is then convereted to Fahrenheit and printed in the output.
+* Between each separate conversion the user is given the oportunity to choose if 
+* they would like to continue or not.
+* 
+* @author (Jake Girard) 
+* @version (2/3/2019)
+*/
+import java.util.Scanner;
+
+public class TempConverter{
+    public static void main(String args[]){
+        convertTemperature();
+    }
+    private static void convertTemperature() {
+        Scanner input = new Scanner(System.in);
+        print("\nEnter 1 for Fahrenheit to Celsius"
+                + "\nEnter 2 for Celsius to Fahrenheit"
+                + "\nEnter 3 to Exit"
+                + "\n");
+        int selection = input.nextInt();
+        if (selection == 1) {
+            print("Please enter a temperature in Fahrenheit:");
+            far2cel();
+        } else if (selection == 2) {
+            print("Please enter a temperature in Celsius:");
+            cel2far();
+        } else if (selection == 3) {
+            print("Thank you, bye.");
+        }
+    }
+
+    private static void cel2far() {
+        Scanner input = new Scanner(System.in);
+        Double celsius = input.nextDouble();
+        print(celsius + " celsius is " + ((celsius * 9 / 5.0) + 32)
+                + " Fahrenheit");
+        convertTemperature();
+    }
+
+    private static void far2cel() {
+        Scanner input = new Scanner(System.in);
+
+        Double Fahrenheit = input.nextDouble();
+        print(Fahrenheit + " Fahrenheit is " + ((Fahrenheit - 32) * (5 / 9.0))
+                + " celsius");
+        convertTemperature();
+    }
+
+    private static void print(String string) {
+        System.out.print("\n" + string);
+    }
+}
